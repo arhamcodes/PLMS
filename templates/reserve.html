@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reserve Parking Spot</title>
+</head>
+<body>
+    <h1>Reserve Parking Spot</h1>
+    <form method="post" action="{{ url_for('reserve') }}">
+        <label for="start_time">Start Time:</label>
+        <input type="time" name="start_time" required><br>
+        <label for="duration_in_minutes">Duration (minutes):</label>
+        <input type="number" name="duration_in_minutes" required><br>
+        <label for="booking_date">Booking Date:</label>
+        <input type="date" name="booking_date" required><br>
+        <label for="parking_slot_id">Parking Slot:</label>
+        <select name="parking_slot_id">
+            {% for slot in slots %}
+            <option value="{{ slot[0] }}">Slot {{ slot[2] }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Reserve">
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Floor</title>
+</head>
+<body>
+    <h1>Assign Floor</h1>
+    <form method="post" action="{{ url_for('assign_floor') }}">
+        <label for="parking_lot_id">Parking Lot:</label>
+        <select name="parking_lot_id">
+            {% for parking_lot in parking_lots %}
+            <option value="{{ parking_lot[0] }}">{{ parking_lot[1] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="floor_number">Floor Number:</label>
+        <input type="number" name="floor_number" required><br>
+        <label for="number_of_slots">Number of Slots:</label>
+        <input type="number" name="number_of_slots" required><br>
+        <input type="submit" value="Assign Floor">
+    </form>
+</body>
+</html>

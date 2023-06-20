@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Parking Lots</h2>
+    <ul>
+        {% for parking_lot in parking_lots %}
+        <li>{{ parking_lot[1] }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Floors</h2>
+    <ul>
+        {% for floor in floors %}
+        <li>Floor {{ floor[2] }} - Parking Lot ID: {{ floor[1] }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('assign_parking_lot') }}">Assign Parking Lot</a></p>
+    <p><a href="{{ url_for('assign_floor') }}">Assign Floor</a></p>
+    <p><a href="{{ url_for('assign_parking_slot') }}">Assign Parking Slot</a></p>
+</body>
+</html>
